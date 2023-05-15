@@ -1,0 +1,21 @@
+1. What is next-auth and why do we use it?
+ - It là 1 authentication solution được built đặc biệt cho NextJS => Nó được design to work Server side rendering patterns.
+ -  Nó có những hooks work rất smootly với SSR.
+=> Nó là 1 solution cho NextJS khi cần đến authentication.
+
+2. Trong typescript thì dùng as để cast type ko được khuyến khích lắm => Vì nó thất bại trong mục đích sử dụng typescript.
+
+3. What is mongo database?
+    - Nó là 1 cơ sở dữ liệu thuộc dạng NoSQL.
+    - Có các collection (Table in mySQL), document (row in MySQL) và dữ liệu được lưu trữ rất linh hoạt.
+
+4. GraphQL
+    * Graphql Server chỉ có 1 endpoint duy nhất.
+
+5. CORS error?
+
+6. Làm sao ở mỗi hàm resolver ta truy cập vào được prisma, session của user đang đăng nhập
+    => Trong expressMiddleware ta nhận vào 1 server và 1 object chứa method context.
+    => Trong method context này return cái gì thì trong mỗi hàm resolver có parameter context để lấy context này ra.
+    => Đọc document để thấy được hàm resolver nhận vào 4 tham số: parent, args, context, info.
+    => 2 cái quan trọng là args (Các arguments của client gửi đến) và context (Chứa thông tin về ngữ cảnh hiện tại như session, prisma, pubsub)

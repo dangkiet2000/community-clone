@@ -1,0 +1,1 @@
+1. Lại gặp cái lỗi mà getSession ở server nó always return null. (Lấy trong context)    

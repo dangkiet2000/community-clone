@@ -1,0 +1,69 @@
+Section 1: Begin Project (Create Next App, Next.JS Fundamentals, pages, client-side and API routing).
+    => Just setup NextJS project => Its basic job
+
+Section 2: NextAuth and Google Cloud Console Introduction
+    1. Just get Google ID, Secret from cloud google for Google Provider in Next-auth.
+
+Section 3: NextAuth Prisma Adapter Setup (Creating a Prisma Schema).
+    1. Create o config of next-auth and prisma (as documentation) => Just create pages/api/[...nextauth].ts
+    2. Create a schema for prisma. (Contain all entities in your db).
+=> Just copy/paste from documentation.
+
+Section 4: Creating our MongoDB Database (Prisma/Mongo, Mongo Compass GUI).
+    1. Just some basics config
+
+Section 5: Creating Users (NextAuth Google Provider & useSession hook)
+    * Submit a user to db via next-auth => prisma => mongodb
+    1. signIn: use signIn, useSession from next-auth/react - Nhớ bọc app lại bằng SessionProvider và genarate prisma.
+    2. Khi signIn thì nó auto create a collection trong mongodb luôn.
+
+Section 6: Chakra UI Introduction & Setup (Chakra Provider & Themes)
+    => Just a basic config for theme => We will move to complex topic later.
+
+Section 7: Creating Custom Usernames Intro (SSR w/ getServerSideProps, session type declaration, Authentication React Components).
+    1. getServerSideProps this page => Solve situation là khi lần đầu render thì nó chưa có được session => Nháy cái rồi ms có đc...
+    2. session type declaration
+        - Vì ta cần thuộc tính username cho mỗi user, mà cái session được return mặc định nó ko có thuộc tính này.
+    3. Create a UI for createUser.
+
+Section 8: Apollo Client Fundamentals 1 (GraphQL Intro).
+    * Just config like documentation.
+    
+Section 9: Creating the Backend (Node.JS Intro, Apollo Server Setup, Apollo Server Express).
+    - Copy and paste on the documentation.
+    
+Section 10: GraphQL Schema’s, Type Definitions, and Resolvers Introduction
+Section 11:  Creating our GraphQL Schema, TypeDefs, and Resolvers
+
+Section 12: Apollo Client Fundamentals 2 (Apollo’s Query & Mutation React hooks).
+Section 13: Create Username Mutation 1 (Writing Mutation Strings).
+Section 14: Apollo React Hooks w/ TypeScript.
+Section 15: Create Username Mutation 2 (Trigger Mutation, Hitting the API, CORS).
+Section 16: Resolver Arguments & Server Context (GraphQL Context).
+Section 17:  Backend Prisma Setup (Prisma Client, Schema & MongoDB Connection).
+Section 18: createUsername Resolver Function
+    * Sau khi đã tạo được GraphQL server (typeDefs, resolvers)
+    * Ở client thì gửi được request tới cái server rồi.
+    * Trong hàm resolver đã lấy được args, context (prisma, session)
+
+=> Tiến hành giao tiếp với db (đã có prisma rồi) và tạo cái username cho User nào gửi request (Đã biết thằng nào gửi request - session).
+
+    * Khi mutation createUser xong => Nếu ok thì ta nhận được success = true => Ở client ta dùng reloadSession để load lại cái  
+        user sau khi updated (next-auth do). (Ko cần phải lấy cả cái user đã update gửi lên client).
+
+Section 19: NextAuth Session Callback (custom session properties)
+    - Next-auth callbacks là gì? Let's read the notes in [...nextauth].ts
+=> Section này để custom lại cái session mà next-auth lấy từ db về (Vì nếu để mặc định thì nó bị thiếu các properties như username, id, image)
+
+
+Section 20: Complete Create Username Feature (Error Handling &React Hot Toast Notifications)
+    * reloadSession để khi tạo username thành công => Dẫn tới page Chat luôn.
+
+
+-------------------PART 2-------------------------
+
+Section 1: React Component Architecture (Conversation & Feed Wrappers).
+    * Flow session: index page lấy cái session => Pass xuống Chat Component => Pass xuống cho 2 thằng Conversations và Feed.
+
+Section 2,3: Search Users Query (searchUsers Query String, useLazyQuery Apollo Hook)
+    * Đối với GraphQL server thì typeDefs định nghĩa response về cái gì thì ở resolver phải response về đúng cái đó, array, object... gì đó phải đúng định dạng mới được
